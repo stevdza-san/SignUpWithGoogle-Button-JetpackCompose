@@ -14,9 +14,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetest.ui.theme.Shapes
 
-@ExperimentalMaterialApi
 @Composable
 fun GoogleButton(
+    modifier: Modifier = Modifier,
     text: String = "Sign Up with Google",
     loadingText: String = "Creating Account...",
     icon: Int = R.drawable.ic_google_logo,
@@ -29,7 +29,7 @@ fun GoogleButton(
     var clicked by remember { mutableStateOf(false) }
 
     Surface(
-        onClick = { clicked = !clicked },
+        modifier = modifier.clickable { clicked = !clicked },
         shape = shape,
         border = BorderStroke(width = 1.dp, color = borderColor),
         color = backgroundColor
@@ -73,7 +73,6 @@ fun GoogleButton(
     }
 }
 
-@ExperimentalMaterialApi
 @Composable
 @Preview
 private fun GoogleButtonPreview() {
